@@ -31,7 +31,7 @@ class TestRanges(PlugTest):
         expected = {7: 'ok', 10: 'ok', 12: 'warning',
                     15: 'warning', 17: 'critical'}
 
-        for (t_val, t_status) in expected.items():
+        for (t_val, t_status) in list(expected.items()):
             assert self.plugin.set_value('test', t_val) == t_status
 
     def test_inverted_threshold(self):
@@ -49,7 +49,7 @@ class TestRanges(PlugTest):
                     12: 'ok', 15: 'critical', 17: 'critical',
                     20: 'critical', 22: 'ok'}
 
-        for (t_val, t_status) in expected.items():
+        for (t_val, t_status) in list(expected.items()):
             assert self.plugin.set_value('test', t_val) == t_status
 
     def test_range_threshold(self):
@@ -64,7 +64,7 @@ class TestRanges(PlugTest):
         expected = {5: 'warning', 10: 'ok', 12: 'ok', 15: 'ok',
                     17: 'warning'}
 
-        for (t_val, t_status) in expected.items():
+        for (t_val, t_status) in list(expected.items()):
             assert self.plugin.set_value('test', t_val) == t_status
 
     def test_multiple_ranges(self):
@@ -92,8 +92,8 @@ class TestRanges(PlugTest):
         expected = {7: 'ok', 10: 'ok', 12: 'warning',
                     15: 'warning', 17: 'critical' }
 
-        for (t_val, t_status) in expected.items():
-            print "Testing %s for %s" % (t_val, t_status)
+        for (t_val, t_status) in list(expected.items()):
+            print("Testing %s for %s" % (t_val, t_status))
             assert self.plugin.set_value('test', t_val) == t_status
 
 
